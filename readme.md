@@ -1,3 +1,3 @@
 # Getting Started
 
-[chapter 1](/00-introduction/readme.md)
+[chapter 1](/lessons/01-introduction.md)
