@@ -1,3 +1,4 @@
 # Getting Started
 
-[Partitioning](/lessons/partitioning.md)
+-   [Partitioning](/lessons/partitioning.md)
+-   [Sorting](/lessons/sorting.md)

@@ -89,4 +89,4 @@ print(index, data[index]) #2 6
 
 This tells us that the 3rd smallest element in this array is `6` without having to sort the complete array.
 
-To convert this example to the kth largest element we can change `k_index = kth - 1` to `k_index = len(data) - kth`. For example, say we pass in `k=3`, instead of finding the element that should be at index `2` in a sorted array, we will find the element that will be 2 positions from the last position of the sorted array.
+To convert this example to the kth largest element we can change `k_index = kth - 1` to `k_index = len(data) - kth`. For example, say we pass in `k=3`, instead of finding the element that should be at index `2` in a sorted array, we will find the element that will be `2` positions from the last position of the sorted array.
