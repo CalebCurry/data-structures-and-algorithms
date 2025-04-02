@@ -16,7 +16,7 @@ After the pointers collide we swap the pivot (`data[left]`) with the `high` poin
 
 ```python
 def partition(data, left=0, right=None):
-    if not right:
+    if right is None:
         right = len(data) - 1
 
     if len(data) <= 1:
@@ -52,27 +52,41 @@ partition(data)
 print(data) # [9, 4, 6, 10, 3, 12, 40]
 ```
 
-I made it so that we use `left` and `right` passed in instead of always using the ends of the full array. This makes the function useful for quicksort where we are not always looking at the full array.
+I made it so that we use `left` and `right` passed in instead of always using the ends of the full array. This makes the function useful for algorithms where we are not always looking at the full array.
 
-# Quicksort
+## Quick Select
 
-Quick Sort is the algorithm most known to use this array partitioning approach. Now that we have `partition` we can create a `quicksort` function that utilizes it.
-
-Quick sort is a **divide and conquer** algorithm which breaks up a problem in to smaller sub problems. The partition splits the array in to two, returning the pivot's final index. In the code example we invoke `quicksort` recursively, once for the data on the left of the pivot and once for the data on the right side of the pivot.
+We can utilize partitioning to partially sort an array and find the kth smallest or largest element, where we provide the value for `k`.  
+For example, the 3rd smallest element in `[12, 4, 6, 40, 3, 9, 10]` is `6`.
 
 ```python
-def quicksort(data, left=0, right=None):
-    if right is None:
-        right = len(data) - 1
 
-    if left < right:
-        p = partition(data, left, right)
+import random
+def quick_select(data, kth):
+    start = 0
+    end = len(data) - 1
+    #adjust to zero based
+    k_index = kth - 1
 
-        quicksort(data, left, p)
-        quicksort(data, p + 1, right)
+    while start <= end:
+        #randint is inclusive
+        r = random.randint(start, end)
+        data[start], data[r] = data[r], data[start]
+        pivot = partition(data, start, end)
 
+        if pivot == k_index:
+            return pivot
+
+        if pivot < k_index:
+            start = pivot + 1
+        else:
+            end = pivot - 1
 
 data = [12, 4, 6, 40, 3, 9, 10]
-quicksort(data)
-print(data) # [3, 4, 6, 9, 10, 12, 40]
+index = quick_select(data, 3)
+print(index, data[index]) #2 6
 ```
+
+This tells us that the 3rd smallest element in this array is `6` without having to sort the complete array.
+
+To convert this example to the kth largest element we can change `k_index = kth - 1` to `k_index = len(data) - kth`. For example, say we pass in `k=3`, instead of finding the element that should be at index `2` in a sorted array, we will find the element that will be 2 positions from the last position of the sorted array.
