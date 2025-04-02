@@ -8,6 +8,12 @@ This does not sort the data entirely, it only places any smaller elements to the
 
 Say we start with an array `[12, 4, 6, 40, 3, 9, 10]` and `pivot = 12` (index 0). We could end up with `[9, 4, 6, 10, 3, 12, 40]`. The result is not fully sorted, but all elements less than `12` are on the left and all elements larger are on the right.
 
+The algorithm works by setting a pivot value, often the value at index 0. We then have a `low` pointer and `high` pointer. These two pointers move towards each other. We first move `low` to the right until it finds a value greater than the pivot. We then move `high` to the left until it finds a value less than the pivot. When these values are found we swap them and continue moving `low` and `high` inward.
+
+Eventually the `low` and `high` pointers will collide meaning we've gone through the entire array. Where these pointers collide is the splitting point between values lower than the pivot and values higher than the pivot.
+
+After the pointers collide we swap the pivot (`data[left]`) with the `high` pointer (`data[high]`) placing the pivot between the lesser values and greater values.
+
 ```python
 def partition(data, left=0, right=None):
     if not right:
@@ -46,7 +52,7 @@ partition(data)
 print(data) # [9, 4, 6, 10, 3, 12, 40]
 ```
 
-I made it so that we use `left` and `right` passed in which will make this function useful for quicksort where we are not always looking at the full array.
+I made it so that we use `left` and `right` passed in instead of always using the ends of the full array. This makes the function useful for quicksort where we are not always looking at the full array.
 
 # Quicksort
 
