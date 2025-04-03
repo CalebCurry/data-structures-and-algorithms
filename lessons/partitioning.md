@@ -27,24 +27,23 @@ def partition(data, left=0, right=None):
     low = left + 1
     high = right
 
-    while True:
-        while low <= high and data[low] < pivot:
+    while low < high:
+        if data[low] < pivot:
             low += 1
 
-        while high >= low and data[high] > pivot:
+        elif data[high] > pivot:
+            high -= 1
+
+        else:
+            data[low], data[high] = data[high], data[low]
+            low += 1
             high -= 1
 
 
-        if low >= high:
-            # Move pivot to correct position
-            data[left], data[high] = data[high], data[left]
-            return high
+    # Move pivot to correct position
+    data[left], data[high] = data[high], data[left]
+    return high
 
-        data[low], data[high] = data[high], data[low]
-
-        # move both pointers after swap
-        low += 1
-        high -= 1
 
 
 data = [12, 4, 6, 40, 3, 9, 10]
