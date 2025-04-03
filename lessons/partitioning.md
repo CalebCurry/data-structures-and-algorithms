@@ -109,11 +109,39 @@ scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]
 # For practice you can see the sorted array
 print(sorted(scores)) # [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
-k = 4 #4th largest
+k = 4 # 4th largest
 k_smallest = len(scores) - k + 1 # 7th smallest
 
 print(scores[quick_select(scores, k_smallest)]) # 70
 
+```
+
+</details>
+
+## Exercise - Find the Top k Scores
+
+In the previous exercise we retrieved the top 4th value.  
+How would you change things if you didn't just want the the top 4th, but also the top 3rd, 2nd, and 1st.  
+We want an array of the top 4 values, not just one.
+
+Assume we found the top kth element, the way partitioning works means that all elements greater than `data[k]` are on the right side of `k`. We can take that entire partition to retrieve the full array. Partitioning doesn't guarantee complete order, it only guarantees that each element is larger than `data[k]`. This means we will need to sort the partition.
+
+Find the top 4 elements of `scores`.
+scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]
+
+<details>
+<summary>Solution</summary>
+
+We will use slicing to retrieve all elements from k to the end: `[kth_position:]`
+
+```python
+
+k = 4 #4th largest
+k_smallest = len(scores) - k + 1 # 7th smallest
+
+kth_position = quick_select(scores, k_smallest)
+top_k = sorted(scores[kth_position:])
+print(top_k)
 ```
 
 </details>
