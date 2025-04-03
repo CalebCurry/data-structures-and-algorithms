@@ -106,14 +106,13 @@ Convert to 7th smallest with `len(data) - k + 1`
 ```python
 scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]
 
-# for practice you can see the sorted array
-
+# For practice you can see the sorted array
 print(sorted(scores)) # [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 k = 4 #4th largest
-k_smallest = len(scores) - k + 1 #7th smallest
+k_smallest = len(scores) - k + 1 # 7th smallest
 
-print(scores[quick_select(scores, k_smallest)]) #70
+print(scores[quick_select(scores, k_smallest)]) # 70
 
 ```
 
