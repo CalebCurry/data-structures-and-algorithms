@@ -100,7 +100,7 @@ Using what we've learned so far, given an array `scores = [10, 70, 80, 90, 20, 3
 <details>
 <summary>Solution</summary>
 
-The goal is to find 4th biggest. We know it is 70 by looking at the sorted array for practice. 70 is at index 6 and is the 7th smallest.  
+The goal is to find 4th largest. We know it is 70 by looking at the sorted array for practice. 70 is at index 6 and is the 7th smallest.  
 Convert to 7th smallest with `len(data) - k + 1`
 
 ```python
