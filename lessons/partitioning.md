@@ -91,4 +91,30 @@ print(index, data[index]) #2 6
 
 This tells us that the 3rd smallest element in this array is `6` without having to sort the complete array.
 
-To convert this example to the kth largest element we can change `k_index = kth - 1` to `k_index = len(data) - kth`. For example, say we pass in `k=3`, instead of finding the element that should be at index `2` in a sorted array, we will find the element that will be `2` positions from the last position of the sorted array.
+To convert this example to the kth largest element we can change the `k` argument passed. Consider a dataset with 10 elements, the 4th largest is also the 7th smallest. To get from `4` to `7` we can do `k_smallest = len(data) - k + 1`. You can think of finding the kth largest as finding the element k positions from the end of a sorted array.
+
+## Exercise - Find the kth Highest Score
+
+Using what we've learned so far, given an array `scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]`, return the 4th highest score in the list.
+
+<details>
+<summary>Solution</summary>
+
+The goal is to find 4th biggest. We know it is 70 by looking at the sorted array for practice. 70 is at index 6 and is the 7th smallest.  
+Convert to 7th smallest with `len(data) - k + 1`
+
+```python
+scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]
+
+# for practice you can see the sorted array
+
+print(sorted(scores)) # [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+k = 4 #4th largest
+k_smallest = len(scores) - k + 1 #7th smallest
+
+print(scores[quick_select(scores, k_smallest)]) #70
+
+```
+
+</details>
