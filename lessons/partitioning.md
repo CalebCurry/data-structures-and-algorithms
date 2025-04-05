@@ -145,3 +145,70 @@ print(top_k)
 ```
 
 </details>
+
+## Exercise - Pixel Color Grouping
+
+You are given an array of RGB pixel values, where each pixel is represented as a tuple (r, g, b) with integer values for red (r), green (g), and blue (b) components, each ranging from 0 to 255. The task is to group the pixels based on their perceived "color similarity" to a target color. We'll define color similarity based on the Euclidean distance in RGB space.
+
+### Inputs:
+
+-   pixels: An array of RGB pixel tuples.
+-   target_color: An RGB tuple representing the target color (r_target, g_target, b_target).
+-   threshold: A float representing the maximum Euclidean distance for a pixel to be considered "similar" to the target_color.
+
+### Constraints:
+
+The input pixels array will contain valid RGB tuples.
+0 <= r, g, b <= 255 for all pixels.
+threshold >= 0
+
+### Output
+
+All pixels whose Euclidean distance to the target_color is less than the threshold are placed on the left side of the array.
+Note: The Euclidean distance between two RGB colors (r1, g1, b1) and (r2, g2, b2) is calculated as:
+
+```python
+distance = sqrt((r1 - r2)^2 + (g1 - g2)^2 + (b1 - b2)^2)
+```
+
+<details>
+<summary>Solution</summary>
+
+```python
+from math import sqrt
+
+pixels = [
+(132, 123, 12),
+(12, 23, 190),
+(132, 103, 120),
+(45, 67, 200),
+(123, 111, 30),
+(80, 90, 160),
+(150, 140, 10),
+(25, 35, 180),
+(100, 120, 100),
+(60, 75, 220),
+]
+target_color = (100, 100, 100)
+threshold = 100
+
+distances = []
+r2, g2, b2 = target_color[0], target_color[1], target_color[2]
+
+for pixel in pixels:
+r1, g1, b1 = pixel[0], pixel[1], pixel[2]
+distances.append(sqrt((r1 - r2)**2 + (g1 - g2)**2 + (b1 - b2)\*\*2))
+
+distances.insert(0, threshold) # insert threshold at start of array
+
+# if needed
+# distances.pop(partition(distances)) # remove threshold from array
+
+print(distances)
+
+# [100, 96.42095207992918, 147.5567687366459, 37.8549864614954,
+# 118.80235687897779, 74.4983221287567, 64.03124237432849,
+# 110.45361017187261, 127.47548783981962, 20.0, 128.93796958227628]
+
+</details>
+```
