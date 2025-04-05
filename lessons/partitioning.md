@@ -132,7 +132,7 @@ scores = [10, 70, 80, 90, 20, 30, 40, 50, 60, 100]
 <details>
 <summary>Solution</summary>
 
-We will use slicing to retrieve all elements from k to the end: `[kth_position:]`
+We will use slicing to retrieve all elements from `k` to the end: `[kth_position:]`
 
 ```python
 
@@ -148,13 +148,13 @@ print(top_k)
 
 ## Exercise - Similar Pixels
 
-You are given an array of RGB pixel values, where each pixel is represented as a tuple (r, g, b) with integer values for red (r), green (g), and blue (b) components, each ranging from 0 to 255. The task is to group the pixels based on their perceived "color similarity" to a target color. We'll define color similarity based on the Euclidean distance in RGB space.
+You are given an array of RGB pixel values, where each pixel is represented as a tuple `(r, g, b)` with integer values for red (`r`), green (`g`), and blue (`b`) components, each ranging from 0 to 255. The task is to group the pixels based on their perceived "color similarity" to a target color. We'll define color similarity based on the Euclidean distance in RGB space.
 
 ### Inputs:
 
--   pixels: An array of RGB pixel tuples.
--   target_color: An RGB tuple representing the target color (r_target, g_target, b_target).
--   threshold: A float representing the maximum Euclidean distance for a pixel to be considered "similar" to the target_color.
+-   `pixels`: An array of RGB pixel tuples.
+-   `target_color`: An RGB tuple representing the target color (r_target, g_target, b_target).
+-   `threshold`: A float representing the maximum Euclidean distance for a pixel to be considered "similar" to the target_color.
 
 ### Constraints:
 
