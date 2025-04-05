@@ -58,7 +58,7 @@ I made it so that we use `left` and `right` passed in instead of always using th
 We can utilize partitioning to partially sort an array and find the kth smallest or largest element, where we provide the value for `k`.  
 For example, the 3rd smallest element in `[12, 4, 6, 40, 3, 9, 10]` is `6`.
 
-Instead of sorting everything, partitioning will split the data in to larger and smaller than the random pivot. We will then repeat the process with just the partition that the `kth` element would be in. Effectively, we are cutting the search space in half with each iteration.
+Instead of sorting everything, partitioning will split the data in to larger and smaller than the random pivot. We will then repeat the process with just the partition that the `kth` element would be in.
 
 ```python
 import random
