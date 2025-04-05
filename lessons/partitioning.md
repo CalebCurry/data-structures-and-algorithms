@@ -146,7 +146,7 @@ print(top_k)
 
 </details>
 
-## Exercise - Pixel Color Grouping
+## Exercise - Similar Pixels
 
 You are given an array of RGB pixel values, where each pixel is represented as a tuple (r, g, b) with integer values for red (r), green (g), and blue (b) components, each ranging from 0 to 255. The task is to group the pixels based on their perceived "color similarity" to a target color. We'll define color similarity based on the Euclidean distance in RGB space.
 
